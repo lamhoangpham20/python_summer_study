@@ -3,6 +3,7 @@ guesses = ['Thinh', 'Hung', 'Tai']
 print(f"Invite {guesses[0]}")
 print(f"Invite {guesses[1]}")
 print(f"Invite {guesses[2]}")
+print(len(guesses))
 # task 3.5
 missing_guess = guesses.pop(2)
 print(f"{missing_guess} can't come to the party")
@@ -11,6 +12,7 @@ guesses[1] = 'Nam'
 #print(guesses)
 print(f"Invite {guesses[0]}")
 print(f"Invite {guesses[1]}")
+print(len(guesses))
 # task 3.6
 print('We have found a bigger table')
 guesses.insert(0, 'Duc')
@@ -21,6 +23,7 @@ print(f"Invite {guesses[1]}")
 print(f"Invite {guesses[2]}")
 print(f"Invite {guesses[3]}")
 print(f"Invite {guesses[4]}")
+print(len(guesses))
 #print(guesses)
 # task 3.7
 print('I can invite only 2 people')
@@ -35,3 +38,4 @@ print(f"Dear {guesses[1]}, you are still invited")
 guesses.remove('Thinh')
 guesses.remove('Duc')
 print(guesses)
+print(len(guesses))
