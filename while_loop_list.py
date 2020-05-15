@@ -13,7 +13,7 @@ prompt = ("If you could visit one place in the world, where would you go?")
 responses = {}
 active = True
 while active:
-    name = input("what's your name")
+    name = input("what's your name? ")
     place = input(prompt)
     responses[name] = place
     repeat = input("Would you like to let another person respond? (yes/ no) ")
