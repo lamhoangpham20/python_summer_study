@@ -7,3 +7,8 @@ restaurant.open_restaurant()
 print(restaurant.number_served)
 restaurant.set_number_served(2)
 print(restaurant.number_served)
+another_restaurant = Restaurant('Burger King', 'American')
+another_restaurant.describe_restaurant()
+
+restaurant2 = Restaurant('Pho', 'Viet')
+restaurant2.describe_restaurant()
