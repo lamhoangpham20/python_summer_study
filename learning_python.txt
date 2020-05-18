@@ -1,0 +1,2 @@
+In Python you can make a programming easier
+In Python there are a list of rules of syntax that you have to follow
