@@ -7,8 +7,14 @@ class GameStats:
         self.reset_stats()
         # Start game in an inactive state.
         self.game_active = False
-        self.high_score = 0
-        self.skill_level = 1
+        try:
+            with open('high_score.txt', 'r') as f:
+                self.high_score = int(f.read())
+        except FileNotFoundError:
+            pass
+        else:
+            pass
+        self.level = 1
 
     def reset_stats(self):
         """Initialize statistics that can change during the game."""

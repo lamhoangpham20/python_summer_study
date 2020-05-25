@@ -55,6 +55,8 @@ class AlienInvasion:
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                with open ('high_score.txt', 'w') as f:
+                    f.write(str(self.stats.high_score))
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
@@ -77,6 +79,8 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
         elif event.key == pygame.K_q:
+            with open ('high_score.txt', 'w') as f:
+                f.write(str(self.stats.high_score))
             sys.exit()
         elif event.key == pygame.K_p:
             self._start_game()
@@ -150,6 +154,7 @@ class AlienInvasion:
 
         # Decrement ships_left.
         self.stats.ships_left -= 1
+        self.sb.prep_ships()
         if self.stats.ships_left > 0:
             # Get rid of any remaining aliens and bullets.
             self.aliens.empty()
@@ -195,6 +200,8 @@ class AlienInvasion:
         # Reset the game settings.
         self.settings.initialize_dynamic_settings()
         self.sb.prep_score()
+        self.sb.prep_level()
+        self.sb.prep_ships()
 
     def _check_play_button(self, mouse_pos):
         """Start a new game when the player clicks Play."""
@@ -213,6 +220,9 @@ class AlienInvasion:
             # Reset the game settings.
             self.settings.initialize_dynamic_settings()
             self.sb.prep_score()
+            self.sb.prep_level()
+            self.sb.prep_ships()
+
     def _change_fleet_direction(self):
         """Drop the entire fleet and change the fleet's direction."""
         for alien in self.aliens.sprites():
@@ -229,6 +239,9 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+            # Increase level.
+            self.stats.level += 1
+            self.sb.prep_level()
         if collisions:
             for aliens in collisions.values():
                self.stats.score += self.settings.alien_points * len(aliens)
